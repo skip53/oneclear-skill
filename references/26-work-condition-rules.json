@@ -1,0 +1,3713 @@
+{
+  "schema_version": "1.0.0",
+  "source_version": "2026-04-application-only",
+  "source_file": "rule-engine-domain/rule_engine/selectionDecisionTable.ts",
+  "generated_for": "oneclear",
+  "field_aliases": {
+    "industry_process": [
+      "industry_process",
+      "行业",
+      "工艺段",
+      "行业工艺",
+      "应用场景"
+    ],
+    "objectives": [
+      "objectives",
+      "客户目标",
+      "目标",
+      "本次目标",
+      "客户想解决的问题",
+      "需求"
+    ],
+    "pain_points": [
+      "pain_points",
+      "痛点",
+      "故障表现",
+      "客户原话",
+      "业务员原始描述",
+      "客户描述",
+      "症状"
+    ],
+    "metadata.completeness_score": [
+      "metadata.completeness_score",
+      "完整度",
+      "信息完整度",
+      "completeness_score"
+    ],
+    "flue_gas.temperature_normal": [
+      "flue_gas.temperature_normal",
+      "常态温度",
+      "正常温度",
+      "温度",
+      "运行温度",
+      "长期温度"
+    ],
+    "flue_gas.temperature_instant": [
+      "flue_gas.temperature_instant",
+      "峰值温度",
+      "瞬时温度",
+      "最高温度"
+    ],
+    "flue_gas.humidity": [
+      "flue_gas.humidity",
+      "含湿量",
+      "湿度",
+      "水分"
+    ],
+    "flue_gas.dew_point": [
+      "flue_gas.dew_point",
+      "露点",
+      "酸露点",
+      "是否结露"
+    ],
+    "flue_gas.corrosive_components": [
+      "flue_gas.corrosive_components",
+      "烟气成分",
+      "腐蚀成分",
+      "酸碱腐蚀气体",
+      "酸碱 / 腐蚀气体"
+    ],
+    "flue_gas.oxygen_content": [
+      "flue_gas.oxygen_content",
+      "含氧量",
+      "氧含量",
+      "O2",
+      "氧气含量"
+    ],
+    "dust.type": [
+      "dust.type",
+      "粉尘类型",
+      "粉尘成分",
+      "粉尘"
+    ],
+    "dust.particle_size": [
+      "dust.particle_size",
+      "粉尘粒径",
+      "粒径",
+      "粉尘细度",
+      "细度"
+    ],
+    "dust.abrasiveness": [
+      "dust.abrasiveness",
+      "粉尘磨蚀性",
+      "磨蚀性",
+      "冲刷性"
+    ],
+    "dust.stickiness": [
+      "dust.stickiness",
+      "粉尘粘性",
+      "粘性",
+      "油性"
+    ],
+    "dust.hygroscopicity": [
+      "dust.hygroscopicity",
+      "粉尘吸湿性",
+      "吸湿性"
+    ],
+    "dust.explosive": [
+      "dust.explosive",
+      "粉尘是否爆炸",
+      "爆炸性粉尘",
+      "易燃易爆风险"
+    ],
+    "dust_collector.type": [
+      "dust_collector.type",
+      "除尘器类型",
+      "设备类型",
+      "滤筒类型"
+    ],
+    "dust_collector.filter_velocity": [
+      "dust_collector.filter_velocity",
+      "过滤风速",
+      "过滤速度",
+      "气布比"
+    ],
+    "dust_collector.airflow": [
+      "dust_collector.airflow",
+      "风量",
+      "处理风量"
+    ],
+    "dust_collector.cleaning_method": [
+      "dust_collector.cleaning_method",
+      "清灰方式",
+      "喷吹方式"
+    ],
+    "dust_collector.cleaning_frequency": [
+      "dust_collector.cleaning_frequency",
+      "清灰频率",
+      "喷吹频率"
+    ],
+    "dust_collector.design_pressure": [
+      "dust_collector.design_pressure",
+      "设计压力"
+    ],
+    "dust_collector.installation_orientation": [
+      "dust_collector.installation_orientation",
+      "安装方向"
+    ],
+    "dust_collector.pleat_spacing_level": [
+      "dust_collector.pleat_spacing_level",
+      "褶间距",
+      "褶皱间距"
+    ],
+    "dust_collector.support_structure_quality": [
+      "dust_collector.support_structure_quality",
+      "支撑结构",
+      "笼骨状态"
+    ],
+    "dust_collector.air_leakage_level": [
+      "dust_collector.air_leakage_level",
+      "漏风",
+      "漏风等级"
+    ],
+    "dust_collector.hopper_discharge_status": [
+      "dust_collector.hopper_discharge_status",
+      "灰斗排灰",
+      "排灰状态"
+    ],
+    "cleaning.compressed_air.moisture_contamination": [
+      "cleaning.compressed_air.moisture_contamination",
+      "清灰气源含水",
+      "气源含水",
+      "压缩空气含水"
+    ],
+    "cleaning.compressed_air.oil_contamination": [
+      "cleaning.compressed_air.oil_contamination",
+      "清灰气源含油",
+      "气源含油",
+      "压缩空气含油"
+    ],
+    "cleaning.pulse_pressure_status": [
+      "cleaning.pulse_pressure_status",
+      "喷吹压力状态",
+      "脉冲压力"
+    ],
+    "cleaning.pulse_uniformity_status": [
+      "cleaning.pulse_uniformity_status",
+      "喷吹均匀性",
+      "脉冲均匀性"
+    ],
+    "operation.start_stop_frequency": [
+      "operation.start_stop_frequency",
+      "启停频率",
+      "启停"
+    ],
+    "operation.temperature_fluctuation_level": [
+      "operation.temperature_fluctuation_level",
+      "温度波动",
+      "温度波动等级"
+    ],
+    "operation.cold_spot_present": [
+      "operation.cold_spot_present",
+      "冷点",
+      "是否结露",
+      "冷点存在"
+    ],
+    "symptoms.pressure_drop_behavior": [
+      "symptoms.pressure_drop_behavior",
+      "压差表现",
+      "压差行为"
+    ],
+    "symptoms.emission_breakthrough": [
+      "symptoms.emission_breakthrough",
+      "排放穿透",
+      "排放超标",
+      "穿透"
+    ],
+    "symptoms.local_abrasion": [
+      "symptoms.local_abrasion",
+      "局部磨损",
+      "局部磨蚀",
+      "磨穿"
+    ],
+    "symptoms.bag_clogging": [
+      "symptoms.bag_clogging",
+      "糊袋",
+      "堵袋"
+    ],
+    "symptoms.hardcake": [
+      "symptoms.hardcake",
+      "硬饼",
+      "板结"
+    ],
+    "constraints.material_specified": [
+      "constraints.material_specified",
+      "指定材质",
+      "当前材质"
+    ],
+    "constraints.brand_specified": [
+      "constraints.brand_specified",
+      "指定品牌",
+      "竞品"
+    ],
+    "constraints.certifications_required": [
+      "constraints.certifications_required",
+      "认证要求"
+    ],
+    "constraints.delivery_deadline": [
+      "constraints.delivery_deadline",
+      "交期要求"
+    ],
+    "constraints.budget": [
+      "constraints.budget",
+      "预算",
+      "成本目标",
+      "预算边界"
+    ]
+  },
+  "default_forbidden_commitments": [
+    "不得把规则命中解释为最终型号推荐",
+    "不承诺寿命",
+    "不承诺排放",
+    "不承诺质保",
+    "不承诺完全替代竞品",
+    "涉及阻断项、红色风险或 Level 4/5 候选方向时必须人工确认"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE_008_TEMP_PET_PROHIBITED",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.95,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 130
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        },
+        {
+          "type": "block_option",
+          "option": "PET"
+        }
+      ],
+      "explanation_template": "PET is not allowed when normal temperature exceeds 130C.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "PET"
+        ],
+        "risk_flags": [
+          "PET 温度边界风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "连续/峰值温度记录",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_009_HUMIDITY_PET_PROHIBITED",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 10
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 80
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        },
+        {
+          "type": "block_option",
+          "option": "PET"
+        }
+      ],
+      "explanation_template": "PET hydrolysis risk in high humidity and elevated temperature.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "PET"
+        ],
+        "risk_flags": [
+          "PET 高温高湿水解风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含湿量/露点记录",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_011_TEMP_AC_PROHIBITED",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 125
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        },
+        {
+          "type": "block_option",
+          "option": "AC"
+        }
+      ],
+      "explanation_template": "AC is not allowed when normal temperature exceeds 125C.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "AC"
+        ],
+        "risk_flags": [
+          "AC 温度边界风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "连续/峰值温度记录",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_108_PLAIN_PTFE_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 98,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lt",
+          "value": 130
+        },
+        {
+          "field_path": "flue_gas.corrosive_components.length",
+          "operator": "lte",
+          "value": 0
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "PTFE_MAIN"
+        }
+      ],
+      "explanation_template": "Do not use PTFE as primary option in plain low-risk conditions.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "PTFE_MAIN"
+        ],
+        "risk_flags": [],
+        "capability_directions": [],
+        "required_evidence": [
+          "温度曲线",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_104_LOW_TEMP_PET_PREFERENCE",
+      "rule_type": "strong_preference",
+      "priority": 70,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lt",
+          "value": 100
+        },
+        {
+          "field_path": "flue_gas.corrosive_components.length",
+          "operator": "lte",
+          "value": 0
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PET"
+        }
+      ],
+      "explanation_template": "Prefer PET in low temperature and low corrosion scenarios.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PET"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PET"
+        ],
+        "required_evidence": [
+          "温度曲线",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_105_MID_TEMP_PPS_PREFERENCE",
+      "rule_type": "strong_preference",
+      "priority": 72,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gte",
+          "value": 100
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 160
+        },
+        {
+          "field_path": "flue_gas.oxygen_content",
+          "operator": "lt",
+          "value": 8
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PPS"
+        }
+      ],
+      "explanation_template": "Prefer PPS in medium temperature with low oxygen.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PPS"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PPS"
+        ],
+        "required_evidence": [
+          "温度曲线",
+          "含氧量记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_106_HIGH_TEMP_ARAMID_PI",
+      "rule_type": "strong_preference",
+      "priority": 74,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gte",
+          "value": 140
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 200
+        },
+        {
+          "field_path": "flue_gas.corrosive_components.length",
+          "operator": "lte",
+          "value": 1
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "ARAMID"
+        }
+      ],
+      "explanation_template": "Prefer aramid/PI family in high temperature non-strong-corrosion.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "ARAMID"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "ARAMID"
+        ],
+        "required_evidence": [
+          "温度曲线",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_110_CEMENT_POWER_STEEL_PPS",
+      "rule_type": "strong_preference",
+      "priority": 73,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "水泥"
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 180
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PPS"
+        }
+      ],
+      "explanation_template": "Prefer PPS class in mature cement scenarios.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PPS"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PPS"
+        ],
+        "required_evidence": [
+          "行业/工艺段",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_110_POWER_PPS",
+      "rule_type": "strong_preference",
+      "priority": 73,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "电力"
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 180
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PPS"
+        }
+      ],
+      "explanation_template": "Prefer PPS class in mature power scenarios.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PPS"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PPS"
+        ],
+        "required_evidence": [
+          "行业/工艺段",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_110_STEEL_PPS",
+      "rule_type": "strong_preference",
+      "priority": 73,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "钢铁"
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 180
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PPS"
+        }
+      ],
+      "explanation_template": "Prefer PPS class in mature steel scenarios.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PPS"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PPS"
+        ],
+        "required_evidence": [
+          "行业/工艺段",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_036_ULTRA_LOW_EMISSION_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 76,
+      "confidence": 0.98,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "超低排放"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Ultra-low emission target favors PTFE membrane strategy.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "客户目标/验收口径"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_107_MISSING_DATA_NEGATIVE_PTFE",
+      "rule_type": "negative_bias",
+      "priority": 80,
+      "confidence": 0.95,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "metadata.completeness_score",
+          "operator": "lt",
+          "value": 70
+        }
+      ],
+      "effects": [
+        {
+          "type": "negative_bias"
+        }
+      ],
+      "explanation_template": "Incomplete conditions should not default to PTFE.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "信息不完整时不得默认 PTFE 风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "缺失字段清单"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_019_DEW_POINT_RISK",
+      "rule_type": "risk_warning",
+      "priority": 50,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 10
+        },
+        {
+          "field_path": "flue_gas.dew_point",
+          "operator": "exists"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "dew_point_crossing_risk"
+        }
+      ],
+      "explanation_template": "Humidity with dew point data indicates condensation risk window.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "结露窗口风险"
+        ],
+        "capability_directions": [
+          "抗结露/疏水/保温协同方向"
+        ],
+        "required_evidence": [
+          "露点或酸露点数据",
+          "入口/箱体温度记录",
+          "含湿量/露点记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_005_EXPLOSION_SAFETY",
+      "rule_type": "hard_constraint",
+      "priority": 96,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.explosive",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "anti_static_validation_required"
+        }
+      ],
+      "explanation_template": "Explosive dust requires anti-static system validation.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "防静电系统验证要求"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "粉尘爆炸性",
+          "防静电/接地方案",
+          "安环要求"
+        ],
+        "system_actions": [
+          "先确认防静电接地、系统安全和安环要求"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_038_BUDGET_NEGATIVE_PTFE",
+      "rule_type": "negative_bias",
+      "priority": 81,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "constraints.budget",
+          "operator": "contains",
+          "value": "敏感"
+        }
+      ],
+      "effects": [
+        {
+          "type": "negative_bias"
+        }
+      ],
+      "explanation_template": "Budget-sensitive scenarios reduce pure PTFE recommendation tendency.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "预算敏感场景 PTFE 倾向需降级"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "客户成本目标"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_029_SYSTEM_COOP_REQUIRED",
+      "rule_type": "system_policy",
+      "priority": 90,
+      "confidence": 0.94,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "低能耗"
+        }
+      ],
+      "effects": [
+        {
+          "type": "weight_adjustment",
+          "score_impact": 4
+        },
+        {
+          "type": "system_action",
+          "action": "require_system_coordination"
+        }
+      ],
+      "explanation_template": "Low-energy target requires system-level coordination.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [],
+        "required_evidence": [
+          "客户目标/验收口径"
+        ],
+        "system_actions": [
+          "先做系统协同核算，再讨论滤料升级"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_001A_PPS_HIGH_OXYGEN_SULFUR_VIOLATION",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.95,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.oxygen_content",
+          "operator": "gt",
+          "value": 12
+        },
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "SO2"
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        }
+      ],
+      "explanation_template": "PPS rapidly embrittles through oxidation and sulfation in high-oxygen + sulfur environments.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "高氧+含硫 PPS 氧化/硫化风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含氧量记录",
+          "SO2/SOx 数据",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_001A_PPS_HIGH_OXYGEN_SULFUR_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.95,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.oxygen_content",
+          "operator": "gt",
+          "value": 12
+        },
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "SO2"
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "PPS"
+        }
+      ],
+      "explanation_template": "Block PPS selection in high-oxygen + SO2 conditions.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "PPS"
+        ],
+        "risk_flags": [
+          "高氧+含硫 PPS 氧化/硫化风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含氧量记录",
+          "SO2/SOx 数据",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_001B_PPS_ULTRA_HIGH_TEMP_VIOLATION",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 190
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        }
+      ],
+      "explanation_template": "PPS continuous temperature limit is ~190°C — exceeding it causes irreversible thermal degradation.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "PPS 连续温度边界风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "连续/峰值温度记录",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_001B_PPS_ULTRA_HIGH_TEMP_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 190
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "PPS"
+        }
+      ],
+      "explanation_template": "Block PPS above 190°C continuous operating temperature.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "PPS"
+        ],
+        "risk_flags": [
+          "PPS 连续温度边界风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "连续/峰值温度记录",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_030_P84_ALKALI_VIOLATION",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.98,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "NaOH"
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        }
+      ],
+      "explanation_template": "P84/PI imide rings undergo rapid ring-opening degradation in strong alkali (NaOH) conditions.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "P84/PI 强碱降解风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "碱性成分/浓度",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_030_P84_ALKALI_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.98,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "NaOH"
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "P84"
+        }
+      ],
+      "explanation_template": "Block P84/PI in strong alkali environments.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "P84"
+        ],
+        "risk_flags": [
+          "P84/PI 强碱降解风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "碱性成分/浓度",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_031_GLASS_FIBER_HF_VIOLATION",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.99,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "HF"
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        }
+      ],
+      "explanation_template": "HF corrodes SiO2 in glass fiber, causing structural fiber fracture.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "HF 玻纤腐蚀/断裂风险"
+        ],
+        "capability_directions": [
+          "耐 HF 腐蚀方向需人工确认"
+        ],
+        "required_evidence": [
+          "HF 浓度/检测报告",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_031_GLASS_FIBER_HF_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 100,
+      "confidence": 0.99,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "HF"
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "GLASS_FIBER"
+        }
+      ],
+      "explanation_template": "Block glass fiber filter media in HF-containing environments.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "GLASS_FIBER"
+        ],
+        "risk_flags": [
+          "HF 玻纤腐蚀/断裂风险"
+        ],
+        "capability_directions": [
+          "耐 HF 腐蚀方向需人工确认"
+        ],
+        "required_evidence": [
+          "HF 浓度/检测报告",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_032_PET_MID_TEMP_HUMID_HYDROLYSIS_VIOLATION",
+      "rule_type": "hard_constraint",
+      "priority": 99,
+      "confidence": 0.94,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gte",
+          "value": 80
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 130
+        },
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 15
+        }
+      ],
+      "effects": [
+        {
+          "type": "hard_violation"
+        }
+      ],
+      "explanation_template": "PET ester bonds hydrolyze rapidly at 80-130°C with humidity >15%.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "PET 中温高湿水解风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "温度曲线",
+          "含湿量/露点记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_032_PET_MID_TEMP_HUMID_HYDROLYSIS_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 99,
+      "confidence": 0.94,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gte",
+          "value": 80
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 130
+        },
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 15
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "PET"
+        }
+      ],
+      "explanation_template": "Block PET in mid-temperature + high humidity hydrolysis zone.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "PET"
+        ],
+        "risk_flags": [
+          "PET 中温高湿水解风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "温度曲线",
+          "含湿量/露点记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_017_GLASS_FIBER_PULSE_FATIGUE",
+      "rule_type": "hard_constraint",
+      "priority": 95,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "contains",
+          "value": "脉冲"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "glass_fiber_pulse_fatigue_fracture_risk"
+        }
+      ],
+      "explanation_template": "Glass fiber has poor flexural fatigue resistance — plain glass fiber bags are prohibited with high-frequency pulse cleaning.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "玻纤脉冲疲劳断裂风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "清灰方式/参数"
+        ],
+        "system_actions": [
+          "先确认清灰频率和玻纤弯折疲劳边界"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_098_EQUIPMENT_OXYGEN_LEAKAGE",
+      "rule_type": "hard_constraint",
+      "priority": 95,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.oxygen_content",
+          "operator": "gt",
+          "value": 18
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "equipment_oxygen_leakage_suspected"
+        }
+      ],
+      "explanation_template": "Oxygen >18% indicates significant equipment air leakage, amplifying oxidation risk for all oxygen-sensitive materials.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "高含氧漏风/氧化风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含氧量记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_069_HIGH_FILTER_VELOCITY",
+      "rule_type": "hard_constraint",
+      "priority": 92,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.filter_velocity",
+          "operator": "gt",
+          "value": 1.5
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "high_filter_velocity_lifespan_compromised"
+        }
+      ],
+      "explanation_template": "Filter velocity >1.5 m/min causes rapid cake buildup — expand filter area before upgrading material.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "高过滤风速寿命折损风险"
+        ],
+        "capability_directions": [
+          "先扩容/降低过滤风速方向"
+        ],
+        "required_evidence": [
+          "过滤风速",
+          "处理风量",
+          "过滤面积"
+        ],
+        "system_actions": [
+          "先核算过滤风速/过滤面积，再讨论滤料升级"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_040_HIGH_STICKINESS_SURFACE_REQUIRED",
+      "rule_type": "hard_constraint",
+      "priority": 88,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.stickiness",
+          "operator": "eq",
+          "value": "high"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "high_stickiness_surface_filter_required"
+        }
+      ],
+      "explanation_template": "Highly sticky dust with deep-layer filter structure is a guaranteed failure combination.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "高粘性粉尘深层糊袋风险"
+        ],
+        "capability_directions": [
+          "表面过滤/易清灰方向"
+        ],
+        "required_evidence": [
+          "粉尘粘性",
+          "袋面照片",
+          "压差曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_059_HIGH_STICKINESS_DEEP_NEEDLE_FELT_BLOCK",
+      "rule_type": "hard_constraint",
+      "priority": 88,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.stickiness",
+          "operator": "eq",
+          "value": "high"
+        }
+      ],
+      "effects": [
+        {
+          "type": "block_option",
+          "option": "DEEP_NEEDLE_FELT"
+        }
+      ],
+      "explanation_template": "Block plain deep-layer needle felt for highly sticky dust.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [
+          "DEEP_NEEDLE_FELT"
+        ],
+        "risk_flags": [
+          "高粘性粉尘深层糊袋风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "粉尘粘性",
+          "袋面照片",
+          "压差曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_046_ULTRA_FINE_LOW_EMISSION_MEMBRANE",
+      "rule_type": "hard_constraint",
+      "priority": 87,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.particle_size",
+          "operator": "contains",
+          "value": "超细"
+        },
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "超低排放"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "ultra_fine_dust_requires_membrane_surface_filter"
+        }
+      ],
+      "explanation_template": "Ultra-fine dust + ultra-low emission: ePTFE membrane or nanofiber surface layer is required — plain deep filtration cannot hold sub-micron particles.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "超细粉尘低排放表面过滤风险"
+        ],
+        "capability_directions": [
+          "细粉/超低排放表面过滤方向"
+        ],
+        "required_evidence": [
+          "粉尘粒径",
+          "客户目标/验收口径"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_048_FIBROUS_DUST_CARTRIDGE_BRIDGE",
+      "rule_type": "hard_constraint",
+      "priority": 85,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.type",
+          "operator": "contains",
+          "value": "纤维"
+        },
+        {
+          "field_path": "dust_collector.type",
+          "operator": "contains",
+          "value": "滤筒"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "fibrous_dust_cartridge_pleating_bridge_risk"
+        }
+      ],
+      "explanation_template": "Fibrous dust bridges across tight pleat spacing in cartridge filters, causing irreversible blockage.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "纤维粉尘滤筒架桥堵塞风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "粉尘类型/成分",
+          "除尘器类型"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_085_HORIZONTAL_CARTRIDGE_STICKY",
+      "rule_type": "hard_constraint",
+      "priority": 85,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.type",
+          "operator": "contains",
+          "value": "水平"
+        },
+        {
+          "field_path": "dust.stickiness",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "horizontal_cartridge_sticky_dust_incompatible"
+        }
+      ],
+      "explanation_template": "Horizontal cartridge + sticky dust: gravity does not aid cake release, causing progressive blinding.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "水平滤筒粘性粉尘清灰不利风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "除尘器类型",
+          "粉尘粘性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_052_THERMOPLASTIC_DUST_DEEP_FILTER",
+      "rule_type": "hard_constraint",
+      "priority": 82,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.type",
+          "operator": "contains",
+          "value": "热塑"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "thermoplastic_dust_deep_filter_bonding_risk"
+        }
+      ],
+      "explanation_template": "Thermoplastic dust softens on contact with hot fibers and fuses permanently into the filter structure.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "热塑性粉尘深层粘结风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "粉尘类型/成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_003A_MEMBRANE_BAG_CLOGGING_PAIN",
+      "rule_type": "strong_preference",
+      "priority": 78,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "symptoms.bag_clogging",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Bag-clogging history: membrane or gradient filtration pushes the filtration interface to the surface, preventing deep penetration.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "MEMBRANE_OR_GRADIENT"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "MEMBRANE_OR_GRADIENT"
+        ],
+        "required_evidence": [
+          "袋面照片",
+          "压差曲线",
+          "粉尘粘性/含湿"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_003B_MEMBRANE_MEDIUM_HIGH_STICKINESS",
+      "rule_type": "strong_preference",
+      "priority": 75,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.stickiness",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Medium-high stickiness dust favors membrane or gradient filtration to prevent cake penetration.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "MEMBRANE_OR_GRADIENT"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "MEMBRANE_OR_GRADIENT"
+        ],
+        "required_evidence": [
+          "粉尘粘性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_004_HIGH_ABRASION_FIBER_PRIORITY",
+      "rule_type": "strong_preference",
+      "priority": 74,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.abrasiveness",
+          "operator": "eq",
+          "value": "high"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "High abrasion: fiber type and base fabric structure determine lifespan — increasing grammage alone does not help.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "FIBER_TYPE_BASE_FABRIC"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "FIBER_TYPE_BASE_FABRIC"
+        ],
+        "required_evidence": [
+          "粉尘磨蚀性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_012_MID_LOW_TEMP_ACID_AC_PREFERENCE",
+      "rule_type": "strong_preference",
+      "priority": 68,
+      "confidence": 0.82,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 125
+        },
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "HCl"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "AC"
+        }
+      ],
+      "explanation_template": "Mid-low temperature + acid environment: AC shows good acid resistance at lower cost than PTFE.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "AC"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "AC"
+        ],
+        "required_evidence": [
+          "温度曲线",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_013_HIGH_ABRASION_MID_HIGH_TEMP_ARAMID",
+      "rule_type": "strong_preference",
+      "priority": 74,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.abrasiveness",
+          "operator": "eq",
+          "value": "high"
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gte",
+          "value": 140
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 220
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "ARAMID"
+        }
+      ],
+      "explanation_template": "High abrasion + mid-high temperature: aramid excels in mechanical strength and abrasion resistance.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "ARAMID"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "ARAMID"
+        ],
+        "required_evidence": [
+          "粉尘磨蚀性",
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_015_ULTRA_HIGH_TEMP_PI_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 78,
+      "confidence": 0.83,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 200
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PI"
+        }
+      ],
+      "explanation_template": "Ultra-high temperature (>200°C): PI (P84) or PTFE surface filtration are the viable options.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PI",
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PI",
+          "PTFE"
+        ],
+        "required_evidence": [
+          "温度曲线"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_016A_MULTI_ACID_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 79,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "HCl"
+        },
+        {
+          "field_path": "flue_gas.corrosive_components.length",
+          "operator": "gte",
+          "value": 3
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Complex multi-acid environment with ≥3 corrosive components: PTFE provides broadest chemical resistance.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_016B_HF_PTFE_PREFERENCE",
+      "rule_type": "strong_preference",
+      "priority": 79,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "HF"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "HF-containing flue gas: PTFE membrane is the primary viable material.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_018A_INCINERATION_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 77,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "焚烧"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Incineration flue gas: complex acid components + dew-point windows — PTFE surface filtration strongly preferred.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "行业/工艺段"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_018B_BIOMASS_SURFACE_FILTER",
+      "rule_type": "strong_preference",
+      "priority": 75,
+      "confidence": 0.87,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "生物质"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Biomass combustion: unburnt particles + complex organic acids favor surface filtration with flame-retardant treatment.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "SURFACE_FILTRATION",
+          "FLAME_RETARDANT_FILTER_MEDIA"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "SURFACE_FILTRATION",
+          "FLAME_RETARDANT_FILTER_MEDIA"
+        ],
+        "required_evidence": [
+          "行业/工艺段"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_020_ULTRA_FINE_EPTFE_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 79,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.particle_size",
+          "operator": "contains",
+          "value": "超细"
+        },
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "超低排放"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Ultra-fine dust + ultra-low emission: ePTFE membrane provides inherent sub-micron filtration from day one without break-in.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "ePTFE_MEMBRANE",
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "ePTFE_MEMBRANE",
+          "PTFE"
+        ],
+        "required_evidence": [
+          "粉尘粒径",
+          "客户目标/验收口径"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_021_OIL_BEARING_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 75,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "油"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Oil-bearing dust/flue gas converts dust layers to adhesive films — membrane + water/oil repellent treatment is required.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "WATER_OIL_REPELLENT_MEMBRANE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "WATER_OIL_REPELLENT_MEMBRANE"
+        ],
+        "required_evidence": [
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_025_POWER_ABRASIVE_COMPOSITE",
+      "rule_type": "strong_preference",
+      "priority": 71,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "火电"
+        },
+        {
+          "field_path": "dust.abrasiveness",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Power industry abrasive fly ash: abrasion + fine-particle penetration conflict requires composite abrasion-resistant + surface filtration strategy.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "ABRASION_RESISTANT_COMPOSITE",
+          "SURFACE_FILTRATION"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "ABRASION_RESISTANT_COMPOSITE",
+          "SURFACE_FILTRATION"
+        ],
+        "required_evidence": [
+          "行业/工艺段",
+          "粉尘磨蚀性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_041_HYGROSCOPIC_DUST_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 72,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.hygroscopicity",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Hygroscopic dust forms moisture-induced liquid bridges — surface filtration + hydrophobic finish prevents cake hardening.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "HYDROPHOBIC_SURFACE_FILTRATION"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "HYDROPHOBIC_SURFACE_FILTRATION"
+        ],
+        "required_evidence": [
+          "粉尘吸湿性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_045_FINE_DUST_PRESSURE_DROP_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 73,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "压差"
+        },
+        {
+          "field_path": "dust.particle_size",
+          "operator": "contains",
+          "value": "细"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Fine dust + rising pressure drop: membrane surface filtration prevents deep penetration and maintains cleanability.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "MEMBRANE_OR_GRADIENT"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "MEMBRANE_OR_GRADIENT"
+        ],
+        "required_evidence": [
+          "现场症状/客户原话",
+          "粉尘粒径"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_051_CRYSTALLIZATION_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 71,
+      "confidence": 0.84,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "结晶"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Crystallizing dust: PTFE ultra-low surface energy prevents strong adhesion of crystalline deposits.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_051B_SALT_SCALING_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 71,
+      "confidence": 0.84,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "盐析"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Salt-scaling dust: PTFE surface prevents strong crystal bonding and promotes cleaner cake release.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_055_HARD_COARSE_ANGULAR_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 72,
+      "confidence": 0.87,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.abrasiveness",
+          "operator": "eq",
+          "value": "high"
+        },
+        {
+          "field_path": "dust.particle_size",
+          "operator": "contains",
+          "value": "粗"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Hard coarse angular particles embed in open fiber structures and sever fibers — membrane or calendered surface filter preferred.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "MEMBRANE_OR_CALENDERED_SURFACE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "MEMBRANE_OR_CALENDERED_SURFACE"
+        ],
+        "required_evidence": [
+          "粉尘磨蚀性",
+          "粉尘粒径"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_056A_EMISSION_BREAKTHROUGH_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 76,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "symptoms.emission_breakthrough",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Emission breakthrough history: ePTFE membrane provides inherent filtration efficiency from installation day.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "ePTFE_MEMBRANE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "ePTFE_MEMBRANE"
+        ],
+        "required_evidence": [
+          "排放记录/验收方法",
+          "粉尘粒径",
+          "袋面状态"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_056B_DUST_PENETRATION_MEMBRANE",
+      "rule_type": "strong_preference",
+      "priority": 76,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "穿透"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Dust penetration history: surface filtration structure eliminates deep-layer breakthrough.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "SURFACE_FILTRATION"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "SURFACE_FILTRATION"
+        ],
+        "required_evidence": [
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_060_CARBON_BLACK_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 70,
+      "confidence": 0.83,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "炭黑"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Carbon black: ultra-fine sticky particles — PTFE chemical inertness and non-stick surface are optimal.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE"
+        ],
+        "required_evidence": [
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_061_SALT_HARDCAKE_PTFE",
+      "rule_type": "strong_preference",
+      "priority": 73,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "symptoms.hardcake",
+          "operator": "eq",
+          "value": true
+        },
+        {
+          "field_path": "flue_gas.corrosive_components.length",
+          "operator": "gte",
+          "value": 1
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PTFE"
+        }
+      ],
+      "explanation_template": "Hardcake from salt-containing dust + corrosive environment: PTFE membrane + hydrophobic finish reduces chemical bonding of cake.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PTFE_MEMBRANE",
+          "HYDROPHOBIC_SURFACE_FILTRATION",
+          "PTFE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PTFE_MEMBRANE",
+          "HYDROPHOBIC_SURFACE_FILTRATION",
+          "PTFE"
+        ],
+        "required_evidence": [
+          "硬饼照片",
+          "含湿/露点",
+          "粉尘成分",
+          "完整烟气成分"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_067_PULSE_STICKY_SURFACE_FILTER",
+      "rule_type": "strong_preference",
+      "priority": 71,
+      "confidence": 0.87,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "contains",
+          "value": "脉冲"
+        },
+        {
+          "field_path": "dust.stickiness",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Online pulse cleaning + sticky fine dust: surface filtration with pressure-differential triggered cleaning strongly preferred.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "SURFACE_FILTRATION"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "SURFACE_FILTRATION"
+        ],
+        "required_evidence": [
+          "清灰方式/参数",
+          "粉尘粘性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_072_ABRASION_LOCAL_EROSION_STRUCTURE",
+      "rule_type": "strong_preference",
+      "priority": 71,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.abrasiveness",
+          "operator": "eq",
+          "value": "high"
+        },
+        {
+          "field_path": "symptoms.local_abrasion",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "High abrasion + local erosion: anti-abrasion structural reinforcement (bottom wear ring, abrasion layer) must accompany material selection.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "ABRASION_REINFORCED_STRUCTURE"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "ABRASION_REINFORCED_STRUCTURE"
+        ],
+        "required_evidence": [
+          "粉尘磨蚀性",
+          "局部破损照片",
+          "入口流速",
+          "导流/防磨措施"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_075_OFFLINE_CLEANING_STICKY_SURFACE",
+      "rule_type": "strong_preference",
+      "priority": 70,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "contains",
+          "value": "离线"
+        },
+        {
+          "field_path": "dust.stickiness",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Offline cleaning + sticky dust: surface filtration benefits from the static release window during offline periods.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "SURFACE_FILTRATION"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "SURFACE_FILTRATION"
+        ],
+        "required_evidence": [
+          "清灰方式/参数",
+          "粉尘粘性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_077_VIBRATION_CLEANING_FLEXIBLE_MATERIAL",
+      "rule_type": "strong_preference",
+      "priority": 68,
+      "confidence": 0.85,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "contains",
+          "value": "振打"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Mechanical vibration cleaning significantly increases fatigue loading — avoid brittle materials, prefer high-flex fiber structures.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "FLEXIBLE_FATIGUE_RESISTANT_MEDIA"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "FLEXIBLE_FATIGUE_RESISTANT_MEDIA"
+        ],
+        "required_evidence": [
+          "清灰方式/参数"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_083A_FIRE_SPARK_FLAME_RETARDANT",
+      "rule_type": "strong_preference",
+      "priority": 77,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "火星"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Fire spark history: flame-retardant filter material must be specified; spark capture device is a system prerequisite.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "FLAME_RETARDANT_FILTER_MEDIA"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "阻燃/抗火星方向需与系统防护协同",
+          "FLAME_RETARDANT_FILTER_MEDIA"
+        ],
+        "required_evidence": [
+          "安环措施/火星来源",
+          "预除尘/阻火措施",
+          "现场症状/客户原话"
+        ],
+        "system_actions": [
+          "先确认火星捕集/阻火/安环措施，不承诺滤料单独解决"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_083B_BURN_BAG_FLAME_RETARDANT",
+      "rule_type": "strong_preference",
+      "priority": 77,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "烧袋"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Burned bag history: spark capture device + flame-retardant filter material required.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "FLAME_RETARDANT_FILTER_MEDIA"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "阻燃/抗火星方向需与系统防护协同",
+          "FLAME_RETARDANT_FILTER_MEDIA"
+        ],
+        "required_evidence": [
+          "烧损照片",
+          "火星来源",
+          "预除尘/阻火措施",
+          "现场症状/客户原话"
+        ],
+        "system_actions": [
+          "先确认火星捕集/阻火/安环措施，不承诺滤料单独解决"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_093_LOW_ENERGY_LOW_RESISTANCE_SURFACE",
+      "rule_type": "strong_preference",
+      "priority": 69,
+      "confidence": 0.85,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "低能耗"
+        },
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "exists"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Low energy target with defined cleaning system: low-resistance surface filtration minimizes sustained pressure drop.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "LOW_RESISTANCE_SURFACE_FILTER"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "LOW_RESISTANCE_SURFACE_FILTER"
+        ],
+        "required_evidence": [
+          "客户目标/验收口径",
+          "清灰方式/参数"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_099_ULTRA_LOW_EMISSION_FINE_SURFACE",
+      "rule_type": "strong_preference",
+      "priority": 75,
+      "confidence": 0.84,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "超低排放"
+        },
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "exists"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit"
+        }
+      ],
+      "explanation_template": "Ultra-low emission with active cleaning system: fine surface filtration layer maintains stable emission interface — avoid over-cleaning.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "FINE_SURFACE_FILTRATION"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "FINE_SURFACE_FILTRATION"
+        ],
+        "required_evidence": [
+          "客户目标/验收口径",
+          "清灰方式/参数"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_010_LOW_TEMP_NO_CORROSION_COST_PET",
+      "rule_type": "strong_preference",
+      "priority": 69,
+      "confidence": 0.87,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "lte",
+          "value": 130
+        },
+        {
+          "field_path": "flue_gas.corrosive_components.length",
+          "operator": "lte",
+          "value": 0
+        },
+        {
+          "field_path": "objectives",
+          "operator": "contains",
+          "value": "性价比"
+        }
+      ],
+      "effects": [
+        {
+          "type": "preference_hit",
+          "option": "PET"
+        }
+      ],
+      "explanation_template": "Low temperature + no corrosion + cost-efficiency priority: PET system offers best cost-to-performance with stable supply.",
+      "presales_outputs": {
+        "preferred_materials": [
+          "PET"
+        ],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [
+          "PET"
+        ],
+        "required_evidence": [
+          "温度曲线",
+          "完整烟气成分",
+          "客户目标/验收口径"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_002_HUMID_STICKY_NEEDLE_FELT_RISK",
+      "rule_type": "risk_warning",
+      "priority": 62,
+      "confidence": 0.92,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 10
+        },
+        {
+          "field_path": "dust.stickiness",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "high_humidity_sticky_needle_felt_caking_risk"
+        }
+      ],
+      "explanation_template": "High humidity + sticky dust: plain needle felt structures are prone to surface caking and irreversible bag clogging.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "高湿粘性粉尘结饼糊袋风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含湿量/露点记录",
+          "粉尘粘性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_006_HUMID_FREQUENT_STARTSTOP_COLDSTART",
+      "rule_type": "risk_warning",
+      "priority": 55,
+      "confidence": 0.85,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 10
+        },
+        {
+          "field_path": "operation.start_stop_frequency",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "cold_start_dew_crossing_bag_clogging_risk"
+        }
+      ],
+      "explanation_template": "High humidity + frequent start-stop: cold starts may cross dew point causing condensation and bag clogging regardless of material.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "频繁启停结露糊袋风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含湿量/露点记录",
+          "启停频率",
+          "温度/露点曲线",
+          "保温情况"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_024_ALKALINE_DUST_HUMID_HARDCAKE",
+      "rule_type": "risk_warning",
+      "priority": 58,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "水泥"
+        },
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 10
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "alkaline_dust_hydration_hardcake_risk"
+        }
+      ],
+      "explanation_template": "Cement/lime alkaline dust + high humidity: dust layer hydration can form rigid hardcake that resists pulse cleaning.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "碱性粉尘高湿水化硬饼风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "行业/工艺段",
+          "含湿量/露点记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_027_INCINERATION_SPARK_BURNTHROUGH",
+      "rule_type": "risk_warning",
+      "priority": 60,
+      "confidence": 0.89,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "焚烧"
+        },
+        {
+          "field_path": "flue_gas.temperature_normal",
+          "operator": "gt",
+          "value": 150
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "fire_spark_burnthrough_risk"
+        }
+      ],
+      "explanation_template": "Incineration + elevated temperature: unburnt particle sparks are a chronic risk for filter bag burnthrough.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "火星烧穿风险"
+        ],
+        "capability_directions": [
+          "阻燃/抗火星方向需与系统防护协同"
+        ],
+        "required_evidence": [
+          "安环措施/火星来源",
+          "烧损照片",
+          "预除尘/阻火措施",
+          "行业/工艺段",
+          "温度曲线"
+        ],
+        "system_actions": [
+          "先确认火星捕集/阻火/安环措施，不承诺滤料单独解决"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_033_BIOMASS_FIRE_SPARK_RISK",
+      "rule_type": "risk_warning",
+      "priority": 60,
+      "confidence": 0.96,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "生物质"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "fire_spark_burnthrough_risk"
+        }
+      ],
+      "explanation_template": "Biomass combustion carries unburnt char particles — spark capture device and flame-retardant filter are mandatory.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "火星烧穿风险"
+        ],
+        "capability_directions": [
+          "阻燃/抗火星方向需与系统防护协同"
+        ],
+        "required_evidence": [
+          "安环措施/火星来源",
+          "烧损照片",
+          "预除尘/阻火措施",
+          "行业/工艺段"
+        ],
+        "system_actions": [
+          "先确认火星捕集/阻火/安环措施，不承诺滤料单独解决"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_037_HIGH_AIR_CLOTH_RATIO_LIFESPAN",
+      "rule_type": "risk_warning",
+      "priority": 55,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.filter_velocity",
+          "operator": "gt",
+          "value": 1.2
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "high_air_cloth_ratio_lifespan_degraded"
+        }
+      ],
+      "explanation_template": "Filter velocity >1.2 m/min: cake buildup rate exceeds cleaning capacity — filter area expansion takes priority over material upgrade.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "高过滤风速寿命折损风险"
+        ],
+        "capability_directions": [
+          "先扩容/降低过滤风速方向"
+        ],
+        "required_evidence": [
+          "过滤风速",
+          "处理风量",
+          "过滤面积"
+        ],
+        "system_actions": [
+          "先核算过滤风速/过滤面积，再讨论滤料升级"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_039_ACID_DEWPOINT_CORROSION",
+      "rule_type": "risk_warning",
+      "priority": 56,
+      "confidence": 0.91,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.corrosive_components",
+          "operator": "contains",
+          "value": "SO2"
+        },
+        {
+          "field_path": "flue_gas.dew_point",
+          "operator": "exists"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "acid_dewpoint_corrosion_insulation_required"
+        }
+      ],
+      "explanation_template": "SO2 + dew point data present: acid dew point condensation is a risk — insulation/heat tracing and hydrophobic filter treatment are recommended.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "酸露点腐蚀/结露风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "完整烟气成分",
+          "露点或酸露点数据"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_054_HYGROSCOPIC_AGGLOMERATE_DENSIFICATION",
+      "rule_type": "risk_warning",
+      "priority": 50,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust.hygroscopicity",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        },
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 8
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "agglomerate_dust_densification_risk"
+        }
+      ],
+      "explanation_template": "Hygroscopic dust in humid conditions: moisture-induced agglomeration creates dense compact cake layers with high cleaning resistance.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "吸湿粉尘团聚致密化风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "粉尘吸湿性",
+          "含湿量/露点记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_062_HOPPER_CAKING_SECONDARY_BLOCKAGE",
+      "rule_type": "risk_warning",
+      "priority": 52,
+      "confidence": 0.85,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "symptoms.hardcake",
+          "operator": "eq",
+          "value": true
+        },
+        {
+          "field_path": "dust.hygroscopicity",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "hopper_caking_secondary_blockage_risk"
+        }
+      ],
+      "explanation_template": "Hardcake history + hygroscopic dust: hopper accumulation absorbs moisture causing secondary blockage from fallback material.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "灰斗结块二次回落堵塞风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "硬饼照片",
+          "含湿/露点",
+          "粉尘成分",
+          "粉尘吸湿性"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_068_OVER_CLEANING_FATIGUE_RISK",
+      "rule_type": "risk_warning",
+      "priority": 50,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "contains",
+          "value": "脉冲"
+        },
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "清灰频繁"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "over_cleaning_mechanical_fatigue_risk"
+        }
+      ],
+      "explanation_template": "Overly frequent pulse cleaning accelerates mechanical fatigue and destabilizes the dust cake layer causing emission spikes.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "过度清灰机械疲劳风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "清灰方式/参数",
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_084_STARTSTOP_WETDRY_HARDCAKE",
+      "rule_type": "risk_warning",
+      "priority": 52,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.humidity",
+          "operator": "gt",
+          "value": 8
+        },
+        {
+          "field_path": "operation.start_stop_frequency",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "frequent_start_stop_wetdry_hardcake_risk"
+        }
+      ],
+      "explanation_template": "Frequent start-stop + humidity: repeated wet-dry cycles cause dust layer restructuring and chemical bonding into hardcake.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "频繁启停湿干循环硬饼风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含湿量/露点记录",
+          "启停频率",
+          "温度/露点曲线",
+          "保温情况"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_088_COLD_SPOT_CONDENSATION_BLOCKAGE",
+      "rule_type": "risk_warning",
+      "priority": 55,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "operation.cold_spot_present",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "cold_spot_condensation_blockage_risk"
+        }
+      ],
+      "explanation_template": "Condensation identified: cold spots cause local dew formation leading to rapid adhesive blockage.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "冷点结露局部堵塞风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "冷点/结露位置证据"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_097_TEMP_FLUCTUATION_DEW_CROSSING",
+      "rule_type": "risk_warning",
+      "priority": 55,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "operation.temperature_fluctuation_level",
+          "operator": "in",
+          "values": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "temperature_fluctuation_dew_crossing_risk"
+        }
+      ],
+      "explanation_template": "Large temperature fluctuations create local dew point crossing zones causing condensation and bag clogging.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "温度波动露点穿越风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "温度波动记录",
+          "露点窗口"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_100_OVERCLEANED_DUST_PENETRATION",
+      "rule_type": "risk_warning",
+      "priority": 48,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "symptoms.pressure_drop_behavior",
+          "operator": "eq",
+          "value": "plunge"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "over_cleaned_dust_layer_penetration_risk"
+        }
+      ],
+      "explanation_template": "Pressure drop plunge post-cleaning + emission spike: dust cake is being over-cleaned — reduce pulse energy or switch to zoned cleaning strategy.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "过度清灰粉尘穿透风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "压差曲线",
+          "排放变化记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_034_CEMENT_GRATE_COOLER_EXTREME",
+      "rule_type": "risk_warning",
+      "priority": 60,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "篦冷机"
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "extreme_abrasion_thermal_shock_risk"
+        }
+      ],
+      "explanation_template": "Cement grate cooler: extreme abrasion + thermal shock combination — aramid or structural reinforced glass fiber required.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "极端磨蚀+热冲击风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "行业/工艺段"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_089_PULSE_AIR_MOISTURE_CLOGGING",
+      "rule_type": "risk_warning",
+      "priority": 58,
+      "confidence": 0.94,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.cleaning_method",
+          "operator": "contains",
+          "value": "脉冲"
+        },
+        {
+          "field_path": "cleaning.compressed_air.moisture_contamination",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "pulse_air_moisture_direct_clogging"
+        }
+      ],
+      "explanation_template": "Wet pulse air directly wets the dust cake converting it to adhesive mass — gas source dryer is a mandatory pre-condition.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "脉冲气源含水直接糊袋风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "清灰方式/参数",
+          "气源干燥/除油状态",
+          "喷吹压力/周期"
+        ],
+        "system_actions": [
+          "先处理气源干燥，再判断滤料方向"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_090_PULSE_AIR_OIL_ADHESIVE",
+      "rule_type": "risk_warning",
+      "priority": 58,
+      "confidence": 0.93,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "cleaning.compressed_air.oil_contamination",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "effects": [
+        {
+          "type": "risk_flag",
+          "risk": "pulse_air_oil_adhesive_film_risk"
+        }
+      ],
+      "explanation_template": "Oil-contaminated pulse air forms adhesive film on filter surface rendering all pulse cleaning ineffective.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "脉冲气源含油粘附膜风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "气源干燥/除油状态",
+          "喷吹压力/周期"
+        ],
+        "system_actions": [
+          "先处理气源除油，再判断滤料方向"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_023_HIGH_VELOCITY_SCORE_PENALTY",
+      "rule_type": "weight_adjustment",
+      "priority": 85,
+      "confidence": 0.87,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "dust_collector.filter_velocity",
+          "operator": "gt",
+          "value": 1.2
+        }
+      ],
+      "effects": [
+        {
+          "type": "weight_adjustment",
+          "score_impact": -5
+        }
+      ],
+      "explanation_template": "High filter velocity reduces overall system performance score — filter area expansion must take priority over material upgrade.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [],
+        "required_evidence": [
+          "过滤风速",
+          "处理风量",
+          "过滤面积"
+        ],
+        "system_actions": [
+          "先核算过滤风速/过滤面积，再讨论滤料升级"
+        ],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_034_CEMENT_COOLER_WEIGHT_PENALTY",
+      "rule_type": "weight_adjustment",
+      "priority": 83,
+      "confidence": 0.9,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "industry_process",
+          "operator": "contains",
+          "value": "篦冷机"
+        }
+      ],
+      "effects": [
+        {
+          "type": "weight_adjustment",
+          "score_impact": -8
+        }
+      ],
+      "explanation_template": "Cement grate cooler: extreme abrasion + thermal shock significantly reduces expected lifespan of standard materials.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [],
+        "required_evidence": [
+          "行业/工艺段"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_070_HIGH_INLET_CONCENTRATION_PENALTY",
+      "rule_type": "weight_adjustment",
+      "priority": 82,
+      "confidence": 0.86,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "pain_points",
+          "operator": "contains",
+          "value": "浓度高"
+        }
+      ],
+      "effects": [
+        {
+          "type": "weight_adjustment",
+          "score_impact": -3
+        }
+      ],
+      "explanation_template": "High inlet dust concentration (heavy load): pre-separation and structural reinforcement take priority over material-only solution.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [],
+        "capability_directions": [],
+        "required_evidence": [
+          "现场症状/客户原话"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    },
+    {
+      "rule_id": "RULE_001C_PPS_MODERATE_OXYGEN_BIAS",
+      "rule_type": "negative_bias",
+      "priority": 82,
+      "confidence": 0.88,
+      "enabled": true,
+      "condition_set": [
+        {
+          "field_path": "flue_gas.oxygen_content",
+          "operator": "gte",
+          "value": 8
+        },
+        {
+          "field_path": "flue_gas.oxygen_content",
+          "operator": "lte",
+          "value": 12
+        }
+      ],
+      "effects": [
+        {
+          "type": "negative_bias"
+        }
+      ],
+      "explanation_template": "Moderately elevated oxygen (8-12%): PPS oxidation risk increases — evaluate oxygen-stable alternatives.",
+      "presales_outputs": {
+        "preferred_materials": [],
+        "blocked_options": [],
+        "risk_flags": [
+          "中等含氧 PPS 氧化风险"
+        ],
+        "capability_directions": [],
+        "required_evidence": [
+          "含氧量记录"
+        ],
+        "system_actions": [],
+        "missing_evidence_policy": "缺少触发条件或证据时只输出追问/风险，不升级为最终型号、寿命、排放、质保或替代承诺"
+      }
+    }
+  ]
+}

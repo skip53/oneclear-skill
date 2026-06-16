@@ -1,0 +1,4 @@
+interface:
+  display_name: "OneClear"
+  short_description: "Diagnose industrial filter-media presales cases"
+  default_prompt: "Use $oneclear to diagnose this industrial dust-collection filter-media presales case and draft follow-up questions."

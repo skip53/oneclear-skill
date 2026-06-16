@@ -1,0 +1,42 @@
+{
+  "name": "oneclear",
+  "version": "0.1.1",
+  "description": "OneClear industrial dust-collection filter-media presales skill installer.",
+  "license": "MIT",
+  "bin": {
+    "oneclear": "./bin/oneclear.js"
+  },
+  "files": [
+    "SKILL.md",
+    "agents",
+    "examples",
+    "references",
+    "scripts/agent_os_governance.py",
+    "scripts/check_context_completeness.py",
+    "scripts/classify_case_type.py",
+    "scripts/presales_progression.py",
+    "scripts/risk_tag_rules.py",
+    "scripts/validate_output_pack.py",
+    "scripts/work_condition_rule_library.py",
+    "bin",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "codex-skill",
+    "claude-skill",
+    "opencode-skill",
+    "cursor-skill",
+    "skills-cli",
+    "industrial-filter",
+    "presales",
+    "oneclear"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
