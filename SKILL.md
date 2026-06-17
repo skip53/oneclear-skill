@@ -94,6 +94,8 @@ Do not clean up the text so aggressively that the original context disappears.
 
 ## Interactive Operating Flow
 
+> 🛑 **STOP** — 任何用户输入都必须从 Round 0 任务菜单开始, **禁止直接做诊断/选型/承诺/报价**. 即使输入看起来"明显"或"紧急", 都要先过 Round 0 锁定任务类型. 这是 17 条黑名单 #1 #2 的硬约束.
+
 This skill runs as a **state machine with rounds**. Each round has a fixed shape: input → state update → re-evaluate level → output. The level rises as the user supplies more P0/P1 facts; the level determines what you may and may not say.
 
 ```text
@@ -111,6 +113,8 @@ Optional Refine 更新包 (Refinement)  → 增量更新 + Level 变化说明
 ```
 
 ### Round 0 — Task Menu (任务识别)
+
+> 🔴 **CHECKPOINT 0** — 未确认任务类型 (A-J) 前, 禁止进入 Round 1 抽取 P0 / 输出工况档案 / 启动 P0 抽取脚本. Round 0 的唯一输出是 (a) 任务问题 (b) 可见的 P0 字段 (c) 推荐默认任务.
 
 Goal: lock down the task type before doing any analysis. The task type drives which P0/P1 fields apply, which Level is required for convergence, and which forbidden commitments apply.
 
@@ -178,6 +182,8 @@ Round 1 outputs:
 - Current Level and 3-7 P0/P1 questions for Round 2.
 
 #### Round 1 — AskUserQuestion 案件分流确认
+
+> 🛑 **STOP** — 案件分流 (新项目选型 / 旧项目故障 / 替换·降本 / 信息不足) 未通过 AskUserQuestion 确认前, 禁止输出工况档案草稿或调用 P0 抽取脚本. 一次 AskUserQuestion 就够, 重复会让业务员觉得啰嗦.
 
 在抽取 P0 字段、输出工況档案草稿**之前**,插入一次 AskUserQuestion 案件分流确认(4 选项正好匹配工具上限)。
 
@@ -251,6 +257,8 @@ Triggered by: (a) Level reached, (b) user request, (c) round budget exhausted, o
 
 #### Convergence — AskUserQuestion 收敛门
 
+> 🔴 **CHECKPOINT 收敛门** — 在用户没有明确点头 "收敛出包" 之前, **禁止输出正式输出包**. 即使 Level 已达任务要求或第 7 轮已到, 都要先过这一道 AskUserQuestion. 这是黑名单 #13 (超 7 轮强制收敛) 的执行门.
+
 在判定收敛触发条件成立之后、生成输出包之前,插入一次 AskUserQuestion 单题单选,作为"最后一英里"确认——避免在用户没明确点头的情况下直接出包。
 
 | 项目 | 值 |
@@ -285,11 +293,15 @@ Level-specific output limits (carried over from the commitment ladder):
 - Level 4: candidate directions with human-confirmation requirement.
 - Level 5: technical-support pack with risk assumptions and next actions.
 
+> 🔴 **CHECKPOINT 人工确认门** — Level 4 / Level 5 输出包必须显式标注 "待人工技术负责人确认" 标记, 禁止直接出包给业务员 / 客户. 涉及盖章/合同/招投标/索赔的承诺一律走 13-compliance-and-commitment.md 的三签流程 (技术 + 销售 + 法务). 这是黑名单 #9 #15 #17 的硬约束.
+
 ### Optional Refinement — Update Pack
 
 When the user supplies new facts after convergence, output an **updated pack** with: 本轮新增, Level 是否变化, updated 工况档案, and any newly-resolved open questions. Do not re-output the full pack from scratch unless the user requests it.
 
 ### Blocked — 异常终止(AskUserQuestion 替代路径)
+
+> 🛑 **STOP** — Blocked 状态后, **禁止继续技术追问**. 必须给出 2-3 条替代路径 AskUserQuestion (header chip = `替代路径`), 让用户在 转人工复核 / 等客户澄清 / 转试用验证 之间选择. 不要为了"推进成交"绕过 Blocked.
 
 触发条件见 `references/27-interactive-round-protocol.md` 的 Blocked 节。Blocked 后**不再问技术问题**,而是给出 2-3 条替代路径供用户选。
 
@@ -437,6 +449,8 @@ Script boundary:
 - Never use script output as permission to recommend a final material model, service life, emissions guarantee, warranty wording, or full competitor replacement.
 
 ## Forbidden Behavior
+
+> 🔴 **CHECKPOINT 黑名单 4 段式承认门** — 以下 17 条禁止动作被违反时, 必须按"违反条目 #N / 违反原因 (具体业务约束) / 风险敞口 / 补偿动作"4 段式显式承认, **不允许静默绕开**. 完整因果表见 `references/31-blacklist-with-causality.md`. 引用一致性: 黑名单新增/修改必须在本节与 references/31 两处同步更新, 不允许在两处分别维护导致漂移.
 
 - Do not run a one-shot 9-step pipeline and dump a full diagnostic pack in Round 0. Always go through the task menu first.
 - Do not skip the task menu because the input "looks obvious". Confirm with the user in one short message.
