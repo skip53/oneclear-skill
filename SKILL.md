@@ -1,6 +1,23 @@
 ---
 name: oneclear
 description: Industrial dust-collection filter-media presales technical-support Agent OS for salesperson/customer input about dust collectors, filter bags/media, baghouse operation, work conditions, bag blinding or breakage, high differential pressure, emissions, service life, replacement, cost reduction, quotation readiness, competitor substitution, trial validation, tenders, and Level 4/5 support packs. Use it to run an interactive multi-round state machine that starts with a task-menu question, routes the case, asks 3-7 prioritized follow-up questions per round, tracks case state and commitment level 0-5, and delays formal diagnostic packs until enough work-condition data is collected. At convergence, OneClear saves a local Markdown output pack, then asks via AskUserQuestion whether to create visual presentation material before invoking or installing any visualization tool.
+triggers:
+  - 工业除尘
+  - 滤袋
+  - 滤料
+  - 袋式除尘器
+  - 压差高
+  - 糊袋
+  - 破袋
+  - 询价
+  - 投标
+  - 试用
+  - 替换降本
+  - filter bag
+  - baghouse
+  - dust collector
+  - differential pressure
+  - trial validation
 ---
 
 # 工业除尘滤料售前技术支持 Agent OS (交互式)
