@@ -1,6 +1,6 @@
 ---
 name: oneclear
-description: Industrial dust-collection filter-media presales technical-support Agent OS operating as an interactive, multi-round state machine. Use when salesperson or customer input involves dust collectors, filter bags, filter media, baghouse operation, work conditions, bag blinding, bag breakage, high differential pressure, emissions, service life, replacement, cost reduction, quotation readiness, competitor substitution, trial validation, tender support, or Level 4/5 technical-support packages. The skill always opens with a task-menu question, routes the case, asks 3-7 prioritized follow-up questions per round, tracks case state (intake → discovery → diagnosis → direction → candidate-review → support-pack → blocked) and commitment level (0-5), and only produces the full diagnostic pack once enough work-condition data is collected.
+description: Industrial dust-collection filter-media presales technical-support Agent OS for salesperson/customer input about dust collectors, filter bags/media, baghouse operation, work conditions, bag blinding or breakage, high differential pressure, emissions, service life, replacement, cost reduction, quotation readiness, competitor substitution, trial validation, tenders, and Level 4/5 support packs. Use it to run an interactive multi-round state machine that starts with a task-menu question, routes the case, asks 3-7 prioritized follow-up questions per round, tracks case state and commitment level 0-5, and delays formal diagnostic packs until enough work-condition data is collected. At convergence, OneClear saves a local Markdown output pack, then asks via AskUserQuestion whether to create visual presentation material before invoking or installing any visualization tool.
 ---
 
 # 工业除尘滤料售前技术支持 Agent OS (交互式)
@@ -66,6 +66,26 @@ In this domain:
 - 商业价值明确: connect follow-up questions to service life, emissions, stability, replacement risk, cost, delivery, or trial path.
 - 风险透明: explicitly tag risks such as temperature, condensation, hydrolysis, oxidation, corrosion, abrasion, sticky/oily dust, sparks, cleaning, pressure differential, and replacement cost-down risk.
 - 推进成交: keep the multi-round cadence tight; never stall on a single open question for more than one round.
+
+<!-- SLOW_UPDATE_START -->
+
+## 跨轮次战略约束（仅由 slow_update 写入，受 Step-level 编辑器保护）
+
+> 本区段在 Step-level 编辑器中**只读**——只允许 `slow_update` 在 epoch boundary 改写。任何 Step-level patch 不应修改本段。
+>
+> 来源：SkiillLen.md 评估 + SkillOpt 4 轮 patch 综合沉淀。代表了从「功能完整」走向「机制清晰、动作具体、红线带因果」的硬约束。
+
+- **失败优先原则**：当 P0 数据不足时，宁可停在 Round 1 反问，也不要按销售员转述虚构"客户工况"出方案。证据不足时所有"诊断/方案/选型"输出暂停——参考 11-exception-handling.md「证据不足」异常处理。
+- **黑名单硬约束**：见 `references/31-blacklist-with-causality.md`。**17 条禁止动作全部带因果**，违反时必须显式承认（"已知违反 #N，但因 <具体业务约束> 仍执行"），不允许静默绕开。本段为强约束，任何 Epoch 优化不得删除该段。
+- **承诺边界硬约束**：
+  - Level 4 以下**不允许**出现具体型号/寿命/排放数字
+  - Level 5 **必须**有人工技术负责人确认标记
+  - 涉及盖章/合同/招投标/索赔的承诺一律走 13-compliance-and-commitment.md 的三签流程（技术 + 销售 + 法务）
+- **可视化 hand-off 流程（解耦决策与安装）**：Convergence 末尾**必须先保存本地 Markdown**，再用 `AskUserQuestion` 询问用户"是否需要制作可视化展示素材"。**用户视角不刻意出现 skill 名字**——只问"是否需要制作一份可视化的展示素材"。选"需要制作" + 工具已装 → 调用；选"需要制作" + 工具未装 → **跳出来再用 AskUserQuestion 询问用户是否安装**（不默认跳过、不自动装）；选"不需要" → 结束本轮 /oneclear 调用。**不允许跳过"保存本地 Markdown"或"AskUserQuestion 询问"两步**。
+- **引用一致性硬约束**：黑名单新增/修改必须在 `references/31-blacklist-with-causality.md` 与 `SKILL.md` 两处同步更新，不允许在两处分别维护导致漂移（参考 31-blacklist 文件末尾"与 SKILL.md Forbidden Behavior 段的对应关系"段）。
+- **更新频率**：本区段不经常更新。修改触发条件为 ① SkillOpt 的 `slow_update` 在 epoch boundary 改写 ② 跨多轮反复出现的"修一次又破"的元规则 ③ 评估回归失败（修了 D1 破坏 D2 等）。
+
+<!-- SLOW_UPDATE_END -->
 
 ## Trigger Conditions
 
@@ -293,7 +313,131 @@ Level-specific output limits (carried over from the commitment ladder):
 - Level 4: candidate directions with human-confirmation requirement.
 - Level 5: technical-support pack with risk assumptions and next actions.
 
+<<<<<<< Updated upstream
 > 🔴 **CHECKPOINT 人工确认门** — Level 4 / Level 5 输出包必须显式标注 "待人工技术负责人确认" 标记, 禁止直接出包给业务员 / 客户. 涉及盖章/合同/招投标/索赔的承诺一律走 13-compliance-and-commitment.md 的三签流程 (技术 + 销售 + 法务). 这是黑名单 #9 #15 #17 的硬约束.
+=======
+### Convergence — 本地保存与可视化 Hand-off
+
+Convergence 输出包(工况档案 + 追问清单 + 初步诊断摘要 + 禁止承诺项,以及 Level ≥ 4 时的「售前推进判断」)生成后,**先保存到本地 Markdown,再用 AskUserQuestion 询问用户是否需要制作可视化展示素材**。**不在用户视角刻意出现"huashu-design"这个 skill 名字**——只在 agent 内部用其完成调用。
+
+整个 hand-off 流程分 5 步:2a 保存 → 2b 询问 → 2c-yes 调用(分 INSTALLED/MISSING)→ 2b' 缺装跳出来再问(仅 MISSING)→ 2c-no 结束(用户选"不需要")。
+
+#### 2a. 本地 Markdown 保存(无条件必做)
+
+- **路径**:`./oneclear-output/convergence-<YYYYMMDD-HHMMSS>[-<case-id>].md`(即 /oneclear 调用时当前工作目录 `$(pwd)` 下的 `oneclear-output/` 子目录)
+  - `./oneclear-output/` 目录(相对当前工作目录)不存在时自动创建(`mkdir -p`)
+  - `<case-id>` 可选,从工況档案的 `案件状态` + 客户行业/症状派生(如 `R1-压差高`、`R2-水泥窑头`),如不易派生可省略
+- **内容**:完整的 Convergence 输出包 markdown(与 AskUserQuestion 之前在终端展示的内容**完全一致**)
+- **保存后**用一行 markdown 提示用户:`已保存到 <path>(共 N 字符)`,便于用户确认路径
+- **保存失败时**(如权限/磁盘)—— 仍继续 2b 流程,但显式标注"本地保存失败,Markdown 仅在终端可见"
+
+**2a 具体执行步骤(可被 agent 直接调用)**:
+
+```bash
+# 步骤 1:确保输出目录存在
+mkdir -p "$(pwd)/oneclear-output"
+
+# 步骤 2:派生文件名时间戳与 case-id
+TS=$(date +%Y%m%d-%H%M%S)
+# case-id 从工況档案的「案件状态 + 客户行业/症状」派生,如不易派生可省略
+CASE_ID=""  # 例: R1-压差高 / R2-水泥窑头
+if [ -n "$CASE_ID" ]; then
+  FILENAME="convergence-${TS}-${CASE_ID}.md"
+else
+  FILENAME="convergence-${TS}.md"
+fi
+OUTPUT_PATH="$(pwd)/oneclear-output/$FILENAME"
+
+# 步骤 3:把本轮 Convergence 输出包 markdown 写入文件
+# (与终端展示内容完全一致,不含 AskUserQuestion 的提示文字)
+# 注:agent 在 Markdown 中使用 Write / Edit 工具,或 heredoc 写入
+cat > "$OUTPUT_PATH" <<'EOF'
+<完整的 Convergence 输出包 markdown>
+EOF
+
+# 步骤 4:校验保存结果
+if [ -f "$OUTPUT_PATH" ]; then
+  SIZE=$(wc -c < "$OUTPUT_PATH")
+  echo "已保存到 $OUTPUT_PATH(共 $SIZE 字符)"
+else
+  echo "⚠️ 本地保存失败,Markdown 仅在终端可见"
+fi
+```
+
+#### 2b. 询问是否需要可视化展示素材(必问,本地保存完成后无条件触发)
+
+| 项目 | 值 |
+|---|---|
+| 调用位置 | 本地保存完成后,可视化工具调用之前 |
+| 题数 | 1 |
+| 类型 | 单选 |
+| header chip | `可视化` |
+| 选项 | `需要制作` / `不需要` |
+| 默认 skip 条件 | 无(即使工具未装也要问——用户可能没装但仍想装完后再触发) |
+
+- 选 `需要制作` → 进入 2c-yes(探测工具)
+- 选 `不需要` → 进入 2c-no(结束本轮 /oneclear)
+
+> **注意**:选项文案**不刻意出现 skill 名字**——只问"是否需要制作一份可视化的展示素材"。工具安装命令必然包含技能名(这是必要操作),但问题措辞保持用户视角的清晰。
+
+#### 2c-yes. 探测工具与调用(移交控制权)
+
+1. 探测工具是否安装:
+
+   ```bash
+   test -f ~/.agents/skills/huashu-design/SKILL.md && echo INSTALLED || echo MISSING
+   ```
+2. **INSTALLED** → agent 内部调用可视化工具(**不向用户刻意提 skill 名字**):
+
+   ```
+   Skill(
+     skill="huashu-design",
+     args="<整段 Convergence 输出包 Markdown 作为 content>
+           + 已保存的本地路径:<path>
+           + 一句风格提示:'请基于以上工况诊断结论,渲染为视觉化 HTML(信息图/长文/deck 三选一,先给 3 个风格方向让我选)'"
+   )
+   ```
+3. 调用后 OneClean 把控制权交给可视化工具的内部流程(design direction consultation → 3 套视觉方向 → AskUserQuestion 让用户挑 → 渲染 HTML)。工具内部如果需要再问问题,会自己发起 AskUserQuestion,OneClean 不再插手。
+4. **MISSING** → 跳到 2b'
+
+**2c-yes 错误处理与边界情况**:
+
+- **调用超时**：可视化工具内部 AskUserQuestion 长时间未响应（> 10 分钟） → 提示用户「可视化工具内部可能未响应，Markdown 已保存到 <path>(项目目录下的 `oneclear-output/` 子目录)，可手动复制后重试」
+- **工具返回错误**：捕获错误信息 → 提示用户「可视化生成失败，Markdown 已保存到 <path>(项目目录下的 `oneclear-output/` 子目录)，可在终端查看完整诊断」
+- **用户在 2c-yes 期间主动取消**：回到本轮 2c-no 行为（结束本轮 /oneclear，提示 Markdown 已保存）
+- **同时触发 Refinement**：用户先选"需要制作"、工具已装、调用后用户又补充新事实 → 走 Optional Refinement，**不再**二次触发可视化 hand-off（避免无限循环）
+
+#### 2b'. 工具未安装:跳出来再问一次(不默认跳过)
+
+如果探测到工具未安装,**不要默认"不装"或"自动装"**——再调用一次 AskUserQuestion:
+
+| 项目 | 值 |
+|---|---|
+| 调用位置 | 2c-yes 探测到 MISSING 之后 |
+| 题数 | 1 |
+| 类型 | 单选 |
+| header chip | `安装` |
+| 选项 | `立即安装` / `稍后手动安装` |
+
+- 选 `立即安装` → agent 执行 `npx skills add alchaincyf/huashu-design`,装完回到 2c-yes 的 Skill 调用步骤
+- 选 `稍后手动安装` →
+  - 提示用户:`可视化工具未安装。请手动运行 npx skills add alchaincyf/huashu-design 安装后,重跑 /oneclear 触发可视化。`
+  - 列出已保存的本地 Markdown 路径
+  - **结束本轮 /oneclear 调用**
+
+#### 2c-no. 结束本轮 /oneclear 调用(任务完成)
+
+- 不调用任何工具
+- 不展示安装命令
+- 提示用户:`本轮 /oneclear 任务完成。诊断包已保存到 <path>。如后续需要可视化,运行 npx skills add alchaincyf/huashu-design 安装后重跑 /oneclear 并在 2b 选"需要制作"。`
+- 结束本轮 /oneclear 调用(**不再继续 Round 循环**)
+
+#### 触发边界
+
+- **只在 Convergence 节末尾执行一次本 hand-off**;Round 1、Round 2+ 阶段不主动触发,以免打断多轮追问节奏。
+- Blocked 状态**不**触发可视化(技术结论未生成,无可视化素材)。
+- Refinement 阶段**不再**触发可视化 hand-off;如需可视化,新开 /oneclear 调用。
+>>>>>>> Stashed changes
 
 ### Optional Refinement — Update Pack
 
@@ -424,6 +568,8 @@ Level 4 候选方向包 / Level 5 技术支持包 → references/23-level-4-5-de
 任务菜单（Round 0 用什么任务清单） → references/28-task-menu.md
 进度显示格式（每轮可见的状态） → references/29-progress-visibility.md
 AskUserQuestion 集成模式与决策点矩阵（每轮哪些位置用方向键选择） → references/30-askuserquestion-integration.md
+17 条高风险动作黑名单（带因果 + 替代动作） → references/31-blacklist-with-causality.md
+输出前自检清单（SkiillLen 三问 + oneclear 特定项） → references/32-self-check-rubric.md
 ```
 
 ## Deterministic Helper Scripts
@@ -448,8 +594,15 @@ Script boundary:
 - Rule-library checks may output `preferred_materials` as rule-preferred materials/structures, but that is not a final model recommendation, service-life statement, emissions guarantee, warranty wording, or quotation commitment.
 - Never use script output as permission to recommend a final material model, service life, emissions guarantee, warranty wording, or full competitor replacement.
 
+## Related Skills
+
+| Skill | 角色 | 何时引用 |
+|---|---|---|
+| `huashu-design` (`/huashu-design`) | **OPTIONAL downstream** — OneClean 在 Convergence 收尾时**先保存本地 Markdown**,再用 `AskUserQuestion` 询问用户"是否需要制作可视化展示素材"(**用户视角不刻意出现 skill 名字**)。用户选"需要制作"且已装 → OneClean 内部调用本技能把输出包渲染为视觉化 HTML;缺装时 OneClean 跳出来再问用户是否安装。 | Convergence 节末尾 2b 询问通过后;缺装时 2b' 询问后由用户决定 |
+
 ## Forbidden Behavior
 
+<<<<<<< Updated upstream
 > 🔴 **CHECKPOINT 黑名单 4 段式承认门** — 以下 17 条禁止动作被违反时, 必须按"违反条目 #N / 违反原因 (具体业务约束) / 风险敞口 / 补偿动作"4 段式显式承认, **不允许静默绕开**. 完整因果表见 `references/31-blacklist-with-causality.md`. 引用一致性: 黑名单新增/修改必须在本节与 references/31 两处同步更新, 不允许在两处分别维护导致漂移.
 
 - Do not run a one-shot 9-step pipeline and dump a full diagnostic pack in Round 0. Always go through the task menu first.
@@ -468,6 +621,11 @@ Script boundary:
 - Do not move toward quotation or final scheme when key risks are undisclosed.
 - Do not treat a customer's expressed demand as true when it conflicts with site facts, commercial stage, or evidence.
 - Do not ignore compliance or commitment boundaries around emissions, safety, warranty, contract, tender, customer data, or competitor data.
+=======
+本 Skill 完整黑名单（含机制 + 损失 + 替代动作 + 违反时承认格式）见 `references/31-blacklist-with-causality.md`。**17 条禁止动作全部带因果**，违反时必须显式承认（"已知违反 #N，但因 <具体业务约束> 仍执行"），不允许静默绕开。
+
+新增/修改黑名单条目必须更新 `references/31-blacklist-with-causality.md` + 本节引用，不允许在两处分别维护导致漂移。
+>>>>>>> Stashed changes
 
 ## Commitment Ladder
 
