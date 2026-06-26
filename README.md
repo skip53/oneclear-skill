@@ -65,38 +65,9 @@ npx oneclear install --target codex,cursor    # 多选
 
 不是一次性报告，是**多轮来回**——每轮更新进度、重评 Level，信息够了才收敛。
 
-```mermaid
-flowchart TD
-    A([用户输入]) --> R0
-
-    subgraph R0 ["Round 0 · 任务菜单"]
-        T["弹出 A-J 任务选项，推荐默认"]
-    end
-
-    R0 --> R1
-
-    subgraph R1 ["Round 1 · 建档"]
-        I["抽取 P0 · 分流 · 风险标签 · 评 Level"]
-    end
-
-    R1 --> G{Level 达标?}
-
-    subgraph RN ["Round 2-N · 追问（最多 7 轮）"]
-        Q["3-7 个 P1 问题 + 进度条 + 重评 Level"]
-    end
-
-    G -- 否 --> RN
-    RN --> G
-    G -- 触发红线 --> BK["Blocked · 显式升级 · 替代路径"]
-    G -- 是 --> CV
-
-    subgraph CV ["收敛 · Convergence"]
-        OUT["输出诊断包 · 保存本地 Markdown · 询问是否可视化"]
-    end
-
-    BK --> Z([结束])
-    CV --> Z
-```
+<div align="center">
+<img src="https://raw.githubusercontent.com/skip53/oneclear-skill/main/docs/flow-overview.png" width="700" alt="OneClear 多轮状态机流程">
+</div>
 
 ---
 
@@ -104,24 +75,9 @@ flowchart TD
 
 Level 决定「能说到哪」。每轮都会重评；信息不够，Level 上不去，承诺边界卡住。
 
-```mermaid
-flowchart LR
-    L0["Level 0\n无法分流\n只能追问"]
-    L1["Level 1\n可分流\n不能诊断"]
-    L2["Level 2\n可初步诊断\n不能选型"]
-    L3["Level 3\n可给方向\n不能定型号"]
-    L4["Level 4\n候选方案\n需人工确认"]
-    L5["Level 5\n完整技术支持包"]
-
-    L0 --> L1 --> L2 --> L3 --> L4 --> L5
-
-    style L0 fill:#fca5a5,stroke:#dc2626,color:#1a1a1a
-    style L1 fill:#fcd34d,stroke:#d97706,color:#1a1a1a
-    style L2 fill:#fde68a,stroke:#ca8a04,color:#1a1a1a
-    style L3 fill:#6ee7b7,stroke:#059669,color:#1a1a1a
-    style L4 fill:#93c5fd,stroke:#2563eb,color:#1a1a1a
-    style L5 fill:#c4b5fd,stroke:#7c3aed,color:#1a1a1a
-```
+<div align="center">
+<img src="https://raw.githubusercontent.com/skip53/oneclear-skill/main/docs/flow-levels.png" width="800" alt="Level 0–5 判断深度">
+</div>
 
 | Level | 触发条件 | 能说的边界 |
 |---|---|---|
