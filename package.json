@@ -4,7 +4,7 @@
   "description": "OneClear industrial dust-collection filter-media presales skill installer.",
   "license": "MIT",
   "bin": {
-    "oneclear": "./bin/oneclear.js"
+    "oneclear": "bin/oneclear.js"
   },
   "files": [
     "SKILL.md",
