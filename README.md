@@ -66,7 +66,7 @@ npx oneclear install --target codex,cursor    # 多选
 不是一次性报告，是**多轮来回**——每轮更新进度、重评 Level，信息够了才收敛。
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/skip53/oneclear-skill/main/docs/flow-overview.jpg" width="700" alt="OneClear 多轮状态机流程">
+<img src="https://raw.githubusercontent.com/skip53/oneclear-skill/main/docs/flow-overview.png" width="700" alt="OneClear 多轮状态机流程">
 </div>
 
 ---
